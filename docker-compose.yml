@@ -6,6 +6,6 @@ services:
       context: .
       dockerfile: Dockerfile
     ports:
-      - "3000:80"
+      - "2323:80"
     container_name: peakprinting-react-app
     restart: unless-stopped
