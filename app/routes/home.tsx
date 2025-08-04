@@ -6,6 +6,15 @@ It's meant to be a fun and lighthearted project, showcasing on other pages a few
 import React from "react";
 import type { Route } from "./+types/home";
 
+// Define umami as a global variable for tracking events (Imported via script tag in root.tsx)
+declare global {
+  interface Window {
+    umami: {
+      track: (event: string) => void;
+    };
+  }
+}
+
 export function meta({}: Route.MetaArgs) {
   return [
     { title: "peakprinting.top" },
@@ -129,6 +138,11 @@ export function Printer({
 }
 
 export default function Home() {
+  // Ensure umami is always defined (fallback to no-op if not present)
+  const umami = typeof window !== "undefined" && window.umami
+    ? window.umami
+    : { track: (_event: string) => {} };
+
   const printers: Printer[] = [
     { name: "Base Peak", model: "BP-01", price: 299.99, image: "/base.png" },
     { name: "Simple Peak", model: "SP-01", price: 499.99, image: "/simple.png" },
@@ -145,12 +159,33 @@ export default function Home() {
   );
 
   const scrollToPrinters = () => {
+    umami.track("scrolled_to_printers_clicked");
     document.getElementById('printers-section')?.scrollIntoView({ behavior: 'smooth' });
   };
 
   const handleRickroll = () => {
+    umami.track("contact_us_cliked");
     setShowModal(true);
   };
+
+  // Add handler for cart button
+  const handleAddToCart = () => {
+    umami.track("clicked_cart");
+    handleRickroll();
+  };
+
+  // Add handler for currency switch
+  const handleCurrencySwitch = (cur: "USD" | "EUR" | "GBP") => {
+    umami.track("switched_currency");
+    setCurrency(cur);
+  };
+
+  // Track rickroll modal open
+  React.useEffect(() => {
+    if (showModal) {
+      umami.track("rick_rolled");
+    }
+  }, [showModal]);
 
   return (
     <div className="flex flex-col min-h-screen">
@@ -185,7 +220,6 @@ export default function Home() {
           </button>
         </div>
       </div>
-
       {/* About Our Printers Section */}
       <div className="max-w-4xl mx-auto px-4 mb-16">
         <h2 className="text-4xl font-bold text-center mb-8 bg-gradient-to-r from-amber-200 to-orange-200 bg-clip-text text-transparent">
@@ -223,7 +257,7 @@ export default function Home() {
               <button
                 key={cur}
                 type="button"
-                onClick={() => setCurrency(cur)}
+                onClick={() => handleCurrencySwitch(cur)}
                 className={`px-6 py-2 rounded-xl font-bold text-lg shadow-md transition-all duration-200
                   border-2
                   ${
@@ -260,7 +294,7 @@ export default function Home() {
               {...printer}
               rate={currencyRates[currency]}
               symbol={currencySymbols[currency]}
-              onAddToCart={handleRickroll}
+              onAddToCart={handleAddToCart}
             />
           ))}
         </div>

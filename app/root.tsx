@@ -13,6 +13,16 @@ import type { Route } from "./+types/root";
 import "./app.css";
 
 export const links: Route.LinksFunction = () => [
+  {
+    rel: "preconnect",
+    href: "https://not-a-tracker.reversed.dev",
+  },
+  {
+    rel: "script",
+    href: "https://not-a-tracker.reversed.dev/script.js",
+    defer: true,
+    "data-website-id": "0ba746f5-358d-49de-ac34-eb8e52733910",
+  },
 ];
 
 // Navbar Component
@@ -83,6 +93,16 @@ export function Layout({ children }: { children: React.ReactNode }) {
       <head>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
+        {/* SEO & Social Meta Tags */}
+        <meta property="og:title" content="Peak Printing" />
+        <meta property="og:description" content="Best printers on the hole world! Discover our range of high-quality, fun printers." />
+        <meta property="og:image" content="/screenshot_twtr.png" />
+        <meta property="og:url" content="https://peakprinting.top/" />
+        <meta property="og:type" content="website" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Peak Printing" />
+        <meta name="twitter:description" content="Best printers on the hole world! Discover our range of high-quality, fun printers." />
+        <meta name="twitter:image" content="/screenshot_twtr.png" />
         <Meta />
         <Links />
       </head>
