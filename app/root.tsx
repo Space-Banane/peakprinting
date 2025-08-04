@@ -91,6 +91,8 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <meta name="twitter:description" content="Best printers on the hole world! Discover our range of high-quality, fun printers." />
         <meta name="twitter:image" content="/screenshot_twtr.png" />
         <script defer src="https://not-a-tracker.reversed.dev/script.js" data-website-id="0ba746f5-358d-49de-ac34-eb8e52733910"></script>
+        <Meta />
+        <Links />
       </head>
       <body
         className="bg-gradient-to-br from-gray-950 via-gray-900 to-blue-950 text-white min-h-screen"
