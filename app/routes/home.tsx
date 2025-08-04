@@ -248,6 +248,24 @@ export default function Home() {
         </div>
       </div>
 
+      {/* 3D Models Section */}
+      <div className="max-w-4xl mx-auto px-4 mb-16">
+        <h2 className="text-4xl font-bold text-center mb-6 bg-gradient-to-r from-purple-200 to-blue-200 bg-clip-text text-transparent">
+          No Idea what to Print? <span className="text-white">🧩</span>
+        </h2>
+        <p className="text-lg text-gray-300 text-center mb-6">
+          Check out our fun collection of 3D models, ready for your Peak Printer!
+        </p>
+        <div className="flex justify-center">
+          <a
+            href="/models"
+            className="px-8 py-3 bg-gradient-to-r from-purple-600 to-blue-600 text-white rounded-xl font-bold text-lg shadow-lg hover:from-purple-700 hover:to-blue-700 transition-all duration-300 transform hover:scale-105"
+          >
+            Explore 3D Models 🚀
+          </a>
+        </div>
+      </div>
+
       {/* Currency Selection */}
       <div id="printers-section" className="flex flex-col items-center mb-8">
         <h2 className="text-4xl font-bold text-center mb-8 bg-gradient-to-r from-blue-200 to-purple-200 bg-clip-text text-transparent">
