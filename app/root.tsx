@@ -12,19 +12,6 @@ import React from "react";
 import type { Route } from "./+types/root";
 import "./app.css";
 
-export const links: Route.LinksFunction = () => [
-  {
-    rel: "preconnect",
-    href: "https://not-a-tracker.reversed.dev",
-  },
-  {
-    rel: "script",
-    href: "https://not-a-tracker.reversed.dev/script.js",
-    defer: true,
-    "data-website-id": "0ba746f5-358d-49de-ac34-eb8e52733910",
-  },
-];
-
 // Navbar Component
 function Navbar() {
   const [showAccountTooltip, setShowAccountTooltip] = React.useState(false);
@@ -103,8 +90,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <meta name="twitter:title" content="Peak Printing" />
         <meta name="twitter:description" content="Best printers on the hole world! Discover our range of high-quality, fun printers." />
         <meta name="twitter:image" content="/screenshot_twtr.png" />
-        <Meta />
-        <Links />
+        <script defer src="https://not-a-tracker.reversed.dev/script.js" data-website-id="0ba746f5-358d-49de-ac34-eb8e52733910"></script>
       </head>
       <body
         className="bg-gradient-to-br from-gray-950 via-gray-900 to-blue-950 text-white min-h-screen"
