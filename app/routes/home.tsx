@@ -152,11 +152,14 @@ export default function Home() {
   const [currency, setCurrency] = React.useState<"USD" | "EUR" | "GBP">("EUR");
   const [showModal, setShowModal] = React.useState(false);
 
-  // Pick a random branding reason for each render
-  const branding = React.useMemo(
-    () => brandingReasons[Math.floor(Math.random() * brandingReasons.length)],
-    []
-  );
+  // Pick a random branding reason only on the client to avoid hydration mismatch
+  const [branding, setBranding] = React.useState<string>("");
+
+  React.useEffect(() => {
+    setBranding(
+      brandingReasons[Math.floor(Math.random() * brandingReasons.length)]
+    );
+  }, []);
 
   const scrollToPrinters = () => {
     umami.track("scrolled_to_printers_clicked");
