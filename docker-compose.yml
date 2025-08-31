@@ -14,5 +14,5 @@ services:
       npm i -g pnpm &&
       pnpm install &&
       pnpm build &&
-      pnpm add start
+      pnpm start
       "
