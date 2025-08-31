@@ -11,6 +11,7 @@ services:
     restart: always
     command: >
       sh -c "
+      git pull &&
       npm i -g pnpm &&
       pnpm install &&
       pnpm build &&
