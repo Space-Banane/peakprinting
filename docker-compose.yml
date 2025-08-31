@@ -15,5 +15,5 @@ services:
       npm i -g pnpm &&
       pnpm install &&
       pnpm build &&
-      pnpm start
+      PORT=2323 pnpm start
       "
