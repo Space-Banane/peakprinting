@@ -28,6 +28,7 @@ export interface Printer {
   model: string;
   price: number;
   image: string;
+  hunted: boolean;
 }
 
 // Currency conversion rates (fictional, USD is pumped up for the jokes)
@@ -91,12 +92,13 @@ function RickrollModal({ isOpen, onClose }: { isOpen: boolean; onClose: () => vo
 export function Printer({
   name,
   model,
+  hunted,
   price,
   image,
   rate,
   symbol,
   onAddToCart,
-}: Printer & { rate: number; symbol: string; onAddToCart: () => void }) {
+}: Printer & { rate: number; hunted: boolean; symbol: string; onAddToCart: () => void }) {
   return (
     <div
       className="relative border p-6 rounded-2xl shadow-2xl transition-shadow duration-300 bg-white/10 backdrop-blur-md min-w-[340px] max-w-sm mx-4 flex-shrink-0 flex flex-col items-center"
@@ -110,7 +112,7 @@ export function Printer({
       <img
         src={image}
         alt={`${name} ${model}`}
-        className="w-60 h-52 object-cover rounded-xl mb-5 shadow-lg border-2 border-white/30"
+        className="w-60 h-64 object-cover rounded-xl mb-5 shadow-lg border-2 border-white/30"
         style={{
           background: "linear-gradient(120deg,rgba(255,255,255,0.25) 0%,rgba(0,0,0,0.05) 100%)",
         }}
@@ -118,6 +120,11 @@ export function Printer({
       <h2 className="text-2xl font-extrabold mb-2 text-white flex items-center gap-2 drop-shadow-lg">
         {name}
       </h2>
+      { (hunted) &&
+        <p className="text-red-400 font-bold mb-2 text-lg drop-shadow-lg animate-pulse">
+          🦌 Limited Edition - Hunted Model!
+        </p>
+      }
       <p className="text-white mb-1 text-lg">
         <span className="font-semibold">Model:</span> {model}
       </p>
@@ -144,9 +151,9 @@ export default function Home() {
     : { track: (_event: string) => {} };
 
   const printers: Printer[] = [
-    { name: "Base Peak", model: "BP-01", price: 299.99, image: "/base.png" },
-    { name: "Simple Peak", model: "SP-01", price: 499.99, image: "/simple.png" },
-    { name: "PeakPrinter Maximus", model: "PP-Max", price: 799.99, image: "/maximus.png" },
+    { name: "Base Peak", model: "BP-01", price: 299.99, image: "/gdsga9du89v51.jpg", hunted: false },
+    { name: "Simple Peak", model: "SP-01", price: 499.99, image: "/cursed.png", hunted: true },
+    { name: "PeakPrinter Maximus", model: "PP-Max", price: 799.99, image: "/long_boy.png", hunted: false },
   ];
 
   const [currency, setCurrency] = React.useState<"USD" | "EUR" | "GBP">("EUR");
@@ -306,7 +313,11 @@ export default function Home() {
             ))}
           </div>
         </div>
-        
+        {currency === "USD" && (
+          <div className="mb-6 text-center text-yellow-300 font-bold text-lg drop-shadow">
+            💸 Enjoying the Economy?
+          </div>
+        )}
         {/* Printers grid */}
         <div className="flex flex-row flex-nowrap justify-center gap-8 w-full max-w-6xl mb-4 overflow-x-auto md:overflow-visible">
           {printers.map((printer) => (
