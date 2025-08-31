@@ -1,11 +1,18 @@
 version: '3.8'
 
 services:
-  peakprinting-app:
-    build:
-      context: .
-      dockerfile: Dockerfile
+  app:
+    image: node:22
+    working_dir: /app
+    volumes:
+      - .:/app
     ports:
-      - "2323:3000"
-    container_name: peakprinting-react-app
-    restart: unless-stopped
+      - "2323:2323"
+    restart: always
+    command: >
+      sh -c "
+      npm i -g pnpm &&
+      pnpm install &&
+      pnpm build &&
+      pnpm add start
+      "
