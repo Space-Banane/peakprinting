@@ -43,13 +43,22 @@ const currencySymbols = {
   USD: "$",
   GBP: "£",
 };
-
+ // 3d printer reasons
 const brandingReasons = [
-  "🏔️ Engineered at the peak of technology!",
-  "🖨️ Prints so sharp, you’ll need gloves!",
-  "😂 Guaranteed to make your neighbors jealous!",
-  "🌈 Colors so vibrant, even rainbows are jealous!",
-  "🤖 AI-powered paper jams (for nostalgia).",
+  "🏔️ Engineered at the peak of technology! (literally)",
+  "🖨️ Prints so sharp, you’ll need gloves! (ouch)",
+  "🤖 AI-powered fillament jams (for nostalgia).",
+  "🚀 Prints at the speed of light (it trys its best).",
+  "🎉 Comes with a free virtual high-five! (no free shipping)",
+  "💡 Uses 73% genuine plastic and 27% hopes and dreams!",
+  "🦌 Limited Edition Hunted Models Available! Grab yours now!",
+  "📞 24/7 customer support by bulgarian mountain goats!",
+  "🌍 Eco-friendly* (*when it jams, you use less fillament)",
+  "⚡ Reliability rating: Works 60% of the time, every time!",
+  "🎨 Color accuracy: Sometimes prints in colors that don't exist yet!",
+  "🛠️ Handcrafted by mountain climbers who understand the importance of reaching new heights.",
+  "🌟 Each printer comes with a complimentary sticker of a mountain peak!",
+  "📦 Free shipping on orders over 1000€ (just kidding, we charge for everything).",
 ];
 
 // Rickroll Modal Component
@@ -68,20 +77,20 @@ function RickrollModal({ isOpen, onClose }: { isOpen: boolean; onClose: () => vo
             height="200"
             src="https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1"
             title="Special Offer"
-            frameBorder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowFullScreen
             className="rounded-lg"
           ></iframe>
         </div>
         <p className="text-amber-800 text-center mb-4">
-          You've been selected for our special promotion! 🎵
+          Looks like you've been rickrolled! For inquiries, please don't email us at{" "}
+          <a href="mailto:support@peakprinting.top">support@peakprinting.top</a>
         </p>
         <button
           onClick={onClose}
           className="w-full px-4 py-2 bg-amber-600 text-white rounded-lg hover:bg-amber-700 transition-colors font-bold"
         >
-          Close (Worth It! 😂)
+          Close
         </button>
       </div>
     </div>
@@ -122,7 +131,7 @@ export function Printer({
       </h2>
       { (hunted) &&
         <p className="text-red-400 font-bold mb-2 text-lg drop-shadow-lg animate-pulse">
-          🦌 Limited Edition - Hunted Model!
+          🦌 Limited Edition - Haunted Model!
         </p>
       }
       <p className="text-white mb-1 text-lg">
@@ -137,7 +146,7 @@ export function Printer({
           onClick={onAddToCart}
           className="px-6 py-2 bg-blue-500/80 text-white rounded-lg hover:bg-blue-600/90 transition-colors duration-300 font-bold shadow-md backdrop-blur w-full max-w-[220px]"
         >
-          Add to Cart 🛒
+          Purchase 🛒
         </button>
       </div>
     </div>
@@ -208,7 +217,7 @@ export default function Home() {
           The Best Printers on the Hole World! <span className="text-white">🗻🖨️</span>
         </h2>
         <p className="text-xl text-gray-300 mb-6 text-center max-w-3xl drop-shadow leading-relaxed">
-          Discover our range of high-quality printers designed to meet all your printing needs. Whether you're a professional or a hobbyist, we have the perfect printer for you.
+          Discover our range of high-quality printers designed to meet all your printing needs. Whether you're a professional, a hobbyist, or a maniac, we (probably) have the perfect printer for you.
         </p>
         <div className="mb-8 text-purple-300 font-semibold text-center text-lg drop-shadow">
           {branding}
@@ -226,42 +235,78 @@ export default function Home() {
             onClick={handleRickroll}
             className="px-8 py-4 bg-gradient-to-r from-amber-600 to-orange-600 text-white rounded-xl font-bold text-lg shadow-lg hover:from-amber-700 hover:to-orange-700 transition-all duration-300 transform hover:scale-105"
           >
-            Contact Us 📞
+            Don't Contact Us 📞
           </button>
         </div>
       </div>
       {/* About Our Printers Section */}
-      <div className="max-w-4xl mx-auto px-4 mb-16">
-        <h2 className="text-4xl font-bold text-center mb-8 bg-gradient-to-r from-amber-200 to-orange-200 bg-clip-text text-transparent">
-          About Our Revolutionary Printers <span className="text-white">🏔️</span>
+      <div className="max-w-5xl mx-auto px-4 mb-24">
+        <h2 className="text-4xl font-bold text-center mb-10 text-gray-900 dark:text-white">
+          Why Choose Peak Printers?
         </h2>
-        <div className="grid md:grid-cols-2 gap-6 text-gray-300">
-          <div className="bg-amber-900/20 p-6 rounded-xl border border-amber-700/30">
-            <h3 className="text-xl font-bold text-amber-200 mb-3">🛠️ Handcrafted Excellence</h3>
-            <p>Each printer is lovingly assembled by our team of mountain climbers who understand the importance of reaching new heights. We use 73% genuine plastic and 27% hopes and dreams!</p>
+        <div className="grid md:grid-cols-2 gap-8">
+          <div className="flex items-start gap-4 bg-white/80 dark:bg-gray-900/60 rounded-xl shadow-md border border-gray-200 dark:border-gray-800 p-6">
+            <div className="flex-shrink-0">
+              <span className="inline-flex items-center justify-center h-12 w-12 rounded-full bg-amber-100 dark:bg-amber-900">
+                <span className="text-2xl">🛠️</span>
+              </span>
+            </div>
+            <div>
+              <h3 className="text-lg font-semibold text-gray-900 dark:text-amber-200 mb-1">Handcrafted Excellence</h3>
+              <p className="text-gray-700 dark:text-gray-300">
+                Each printer is assembled by a dedicated team of mountain climbers, ensuring every detail reaches new heights. We use 73% genuine plastic and 27% hopes and dreams for unmatched quality.
+              </p>
+            </div>
           </div>
-          <div className="bg-blue-900/20 p-6 rounded-xl border border-blue-700/30">
-            <h3 className="text-xl font-bold text-blue-200 mb-3">⚡ Reliability Rating</h3>
-            <p>Our printers work 60% of the time, every time! When they don't work, it's probably because they're taking a coffee break. We believe in work-life balance for our machines too.</p>
+          <div className="flex items-start gap-4 bg-white/80 dark:bg-gray-900/60 rounded-xl shadow-md border border-gray-200 dark:border-gray-800 p-6">
+            <div className="flex-shrink-0">
+              <span className="inline-flex items-center justify-center h-12 w-12 rounded-full bg-blue-100 dark:bg-blue-900">
+                <span className="text-2xl">⚡</span>
+              </span>
+            </div>
+            <div>
+              <h3 className="text-lg font-semibold text-gray-900 dark:text-blue-200 mb-1">Reliability Rating</h3>
+              <p className="text-gray-700 dark:text-gray-300">
+                Our printers are engineered for consistent performance, working 60% of the time, every time. When they pause, it’s just a well-deserved coffee break—because even machines need balance.
+              </p>
+            </div>
           </div>
-          <div className="bg-purple-900/20 p-6 rounded-xl border border-purple-700/30">
-            <h3 className="text-xl font-bold text-purple-200 mb-3">🎨 Color Accuracy</h3>
-            <p>Sometimes our printers print in colors that don't exist yet! This is a feature, not a bug. You might discover new parts of the spectrum with every print job.</p>
+          <div className="flex items-start gap-4 bg-white/80 dark:bg-gray-900/60 rounded-xl shadow-md border border-gray-200 dark:border-gray-800 p-6">
+            <div className="flex-shrink-0">
+              <span className="inline-flex items-center justify-center h-12 w-12 rounded-full bg-purple-100 dark:bg-purple-900">
+                <span className="text-2xl">🎨</span>
+              </span>
+            </div>
+            <div>
+              <h3 className="text-lg font-semibold text-gray-900 dark:text-purple-200 mb-1">Color Accuracy</h3>
+              <p className="text-gray-700 dark:text-gray-300">
+                Experience vibrant prints with color accuracy so advanced, you might discover new shades. Sometimes, our printers even create colors that don’t exist yet—innovation at its finest.
+              </p>
+            </div>
           </div>
-          <div className="bg-green-900/20 p-6 rounded-xl border border-green-700/30">
-            <h3 className="text-xl font-bold text-green-200 mb-3">🌍 Eco-Friendly*</h3>
-            <p>*We're eco-friendly because our printers jam so often, you'll use less paper! Also, 12% of our materials are recycled from other printers that gave up on life.</p>
+          <div className="flex items-start gap-4 bg-white/80 dark:bg-gray-900/60 rounded-xl shadow-md border border-gray-200 dark:border-gray-800 p-6">
+            <div className="flex-shrink-0">
+              <span className="inline-flex items-center justify-center h-12 w-12 rounded-full bg-green-100 dark:bg-green-900">
+                <span className="text-2xl">🌍</span>
+              </span>
+            </div>
+            <div>
+              <h3 className="text-lg font-semibold text-gray-900 dark:text-green-200 mb-1">Eco-Friendly*</h3>
+              <p className="text-gray-700 dark:text-gray-300">
+                Our commitment to sustainability means less filament waste—thanks to occasional jams. Plus, 12% of our materials are recycled from printers that have reached the end of their journey.
+              </p>
+            </div>
           </div>
         </div>
       </div>
 
       {/* 3D Models Section */}
-      <div className="max-w-4xl mx-auto px-4 mb-16">
-        <h2 className="text-4xl font-bold text-center mb-6 bg-gradient-to-r from-purple-200 to-blue-200 bg-clip-text text-transparent">
+      <div className="max-w-4xl mx-auto px-4 mb-32">
+        <h2 className="text-4xl font-bold text-center mb-4 bg-gradient-to-r from-purple-200 to-blue-200 bg-clip-text text-transparent">
           No Idea what to Print? <span className="text-white">🧩</span>
         </h2>
         <p className="text-lg text-gray-300 text-center mb-6">
-          Check out our fun collection of 3D models, ready for your Peak Printer!
+          Check out our fun collections of 3D models, ready for your Peak Printer!
         </p>
         <div className="flex justify-center">
           <a
@@ -276,9 +321,9 @@ export default function Home() {
       {/* Currency Selection */}
       <div id="printers-section" className="flex flex-col items-center mb-8">
         <h2 className="text-4xl font-bold text-center mb-8 bg-gradient-to-r from-blue-200 to-purple-200 bg-clip-text text-transparent">
-          Our Peak Printer Collection <span className="text-white">🏆</span>
+          Get your Peak Printer Today! <span className="text-white">🛒</span>
         </h2>
-        <div className="flex items-center mb-8">
+        <div className="flex items-center mb-4">
           <span className="mr-4 text-gray-300 font-semibold text-lg">Currency:</span>
           <div className="flex gap-3">
             {(["EUR", "USD", "GBP"] as const).map((cur) => (
@@ -314,8 +359,18 @@ export default function Home() {
           </div>
         </div>
         {currency === "USD" && (
-          <div className="mb-6 text-center text-yellow-300 font-bold text-lg drop-shadow">
+          <div className="mb-6 text-center text-orange-400 font-bold text-lg drop-shadow">
             💸 Enjoying the Economy?
+          </div>
+        )}
+        {currency === "GBP" && (
+          <div className="mb-6 text-center text-blue-400 font-bold text-lg drop-shadow">
+            😂 Enjoying the Online Safety Act yet?
+          </div>
+        )}
+        {currency === "EUR" && (
+          <div className="mb-6 text-center text-blue-400 font-bold text-lg drop-shadow">
+            🙏 GOD BLESS THE EU! 🇪🇺 🇪🇺 🇪🇺 🇪🇺
           </div>
         )}
         {/* Printers grid */}
@@ -344,7 +399,7 @@ export default function Home() {
       `}</style>
 
       <div className="mt-8 text-base text-gray-400 text-center max-w-md mx-auto drop-shadow mb-8">
-        <span className="font-bold text-amber-300">Peak Printing™</span> – The only printer technology certified by the International Mountain Printing Association (IMPA). <span className="ml-1">🏆</span>
+        <span className="font-bold text-amber-300">Peak Printing</span> – The only printer technology certified by the <span className="font-bold text-blue-400">"Totally Serious Peak Mountain Organization"</span> (TSPMO). <span className="ml-1">🏆</span>
       </div>
 
       <RickrollModal isOpen={showModal} onClose={() => setShowModal(false)} />

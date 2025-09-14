@@ -44,8 +44,8 @@ function Navbar() {
               </button>
               {showCartTooltip && (
                 <div className="absolute right-0 mt-2 w-64 bg-amber-50 text-amber-900 rounded-lg shadow-xl p-4 border border-amber-200">
-                  <p className="font-semibold">Your cart is empty</p>
-                  <p className="text-sm mt-1">Please add some items to your cart.</p>
+                  <p className="font-semibold">Your cart is empty🤯</p>
+                  <p className="text-sm mt-1">Please add an item to your cart, to add an item to your cart.</p>
                 </div>
               )}
             </div>
@@ -62,8 +62,8 @@ function Navbar() {
               </button>
               {showAccountTooltip && (
                 <div className="absolute right-0 mt-2 w-64 bg-amber-50 text-amber-900 rounded-lg shadow-xl p-4 border border-amber-200">
-                  <p className="font-semibold">You are not logged in</p>
-                  <p className="text-sm mt-1">Please log in to access your account.</p>
+                  <p className="font-semibold">You are not logged in☹️</p>
+                  <p className="text-sm mt-1">Please log in to log in to your account.</p>
                 </div>
               )}
             </div>
@@ -136,8 +136,11 @@ export function Layout({ children }: { children: React.ReactNode }) {
             </div>
             
             <div className="mt-6 pt-4 border-t border-white/10 text-center text-xs text-gray-500">
-              Peak Printing™. All rights reserved. No printers were harmed in the making of this website.
+              Peak Printing. No rights reserved. No printers were harmed in the making of this website.
             </div>
+            <p className="mt-2 text-center text-xs text-gray-500">
+              A little joke site because I bought the domain & did NOT want to waste it😂💯
+            </p>
           </div>
         </footer>
         <ScrollRestoration />
